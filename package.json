@@ -7,9 +7,8 @@
     "gulp": "^3.8.11"
   },
   "devDependencies": { 
-    "gulp": "*", 
     "gulp-jshint": "*",
-    "gulp-concat": "*",
+    "gulp-recursive-concat": "*",
     "gulp-rename": "*",
     "gulp-uglify": "*" 
   },
