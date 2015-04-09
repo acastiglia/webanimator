@@ -1,9 +1,19 @@
 # webanimator
 Utilities for creating animations in the browser.
 
-## Usage
+### Usage
 
-## Requirements
-  * Node
+### Requirements
+  * node
+  * npm
 
-## How to build
+### Build
+Install dependencies:
+```sh
+npm install
+```
+
+Build with gulp:
+```sh
+gulp
+```
