@@ -1,0 +1,29 @@
+{
+  "name": "webanimator",
+  "version": "0.1.0",
+  "description": "Utilities for creating animations in the browser",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.11"
+  },
+  "devDependencies": { 
+    "gulp": "*", 
+    "gulp-jshint": "*",
+    "gulp-concat": "*",
+    "gulp-rename": "*",
+    "gulp-uglify": "*" 
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acastiglia/webanimator.git"
+  },
+  "author": "Anthony Castiglia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acastiglia/webanimator/issues"
+  },
+  "homepage": "https://github.com/acastiglia/webanimator"
+}
