@@ -1,7 +1,8 @@
 
-var AnimationController = function() {
-  this.model = Model;
-  this.renderer = Renderer;
+var AnimationController = (function() {
+  var my = {};
+  my.model = Model;
+  my.renderer = Renderer;
 
   var step = function(timestamp) {
     model.advance(timestamp);
@@ -9,16 +10,19 @@ var AnimationController = function() {
     window.requestAnimationFrame(step);
   };
 
-  this.start = function() {
+  my.start = function() {
     step(Date.now());
   };
-};
+
+  return my;
+})();
 
 
-var Model = function() {
-  this.advance = function(timestamp) {};
+var Model = {
+  advance: function(timestamp) {}
 };
 
-var Renderer = function() {
-  this.render = function() {};
+var Renderer = {
+  render: function() {}
 };
+
