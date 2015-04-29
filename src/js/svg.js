@@ -5,6 +5,14 @@ function createSvgElement(elementName) {
 
 function SvgElement(elementName) {
   this.element = createSvgElement(elementName);
+
+  if (arguments.length == 2) {
+    var props = arguments[1];
+
+    for (var name in props) {
+      this.setAttribute(name, props[name]);
+    }
+  }
 }
 
 SvgElement.prototype.setAttribute = function(attrName, value) {
@@ -30,7 +38,7 @@ SvgRectangle.prototype = Object.create(SvgElement.prototype);
 SvgRectangle.prototype.constructor = SvgRectangle;
 
 function SvgCircle() {
-  SvgElement.call(this, 'circle');
+  SvgElement.call(this, 'circle', arguments[0]);
 }
 
 SvgCircle.prototype = Object.create(SvgElement.prototype);
