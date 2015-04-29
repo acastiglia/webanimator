@@ -22,3 +22,17 @@ SvgRoot.prototype.add = function(svgElement) {
   this.element.appendChild(svgElement.element);
 };
 
+function SvgRectangle() {
+  SvgElement.call(this, 'rect');
+}
+
+SvgRectangle.prototype = Object.create(SvgElement.prototype);
+SvgRectangle.prototype.constructor = SvgRectangle;
+
+function SvgCircle() {
+  SvgElement.call(this, 'circle');
+}
+
+SvgCircle.prototype = Object.create(SvgElement.prototype);
+SvgCircle.prototype.constructor = SvgCircle;
+
