@@ -20,7 +20,31 @@ SvgElement.prototype.setAttribute = function(attrName, value) {
 };
 
 function SvgRoot() {
+  function fullscreen() {
+    this.requestFullScreen = this.mozRequestFullScreen ||
+      this.webkitRequestFullScreen;
+  
+    this.requestFullScreen();
+  }
+
   this.element = createSvgElement("svg");
+  this.properties = {};
+
+  if (arguments.length === 2) {
+    this.element.setAttribute('width', arguments[0]);
+    this.element.setAttribute('height', arguments[1]);
+    return;
+  }
+
+  if (arguments.length === 1) {
+    var props = arguments[0];
+    this.element.setAttribute('width', props.width || null);
+    this.element.setAttribute('height', props.height || null);
+
+    if (props.fullscreenOnClick) {
+      this.element.addEventListener('click', fullscreen);
+    }
+  }
 } 
 
 SvgRoot.prototype = Object.create(SvgElement.prototype);
@@ -31,7 +55,7 @@ SvgRoot.prototype.add = function(svgElement) {
 };
 
 function SvgRectangle() {
-  SvgElement.call(this, 'rect');
+  SvgElement.call(this, 'rect', arguments[0]);
 }
 
 SvgRectangle.prototype = Object.create(SvgElement.prototype);
@@ -43,4 +67,5 @@ function SvgCircle() {
 
 SvgCircle.prototype = Object.create(SvgElement.prototype);
 SvgCircle.prototype.constructor = SvgCircle;
+
 
