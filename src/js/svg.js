@@ -38,6 +38,7 @@ function SvgRoot() {
 
   if (arguments.length === 1) {
     var props = arguments[0];
+
     this.element.setAttribute('width', props.width || null);
     this.element.setAttribute('height', props.height || null);
 
@@ -68,4 +69,39 @@ function SvgCircle() {
 SvgCircle.prototype = Object.create(SvgElement.prototype);
 SvgCircle.prototype.constructor = SvgCircle;
 
+function SvgEllipse() {
+  SvgElement.call(this, 'ellipse', arguments[0]);
+}
+
+SvgEllipse.prototype = Object.create(SvgElement.prototype);
+SvgEllipse.prototype.constructor = SvgCircle;
+
+function SvgPath() {
+  SvgElement.call(this, 'path', arguments[0]);
+}
+
+SvgPath.prototype = Object.create(SvgElement.prototype);
+SvgPath.prototype.constructor = SvgCircle;
+
+
+function SvgLine() {
+  SvgElement.call(this, 'line', arguments[0]);
+}
+
+SvgLine.prototype = Object.create(SvgElement.prototype);
+SvgLine.prototype.constructor = SvgCircle;
+
+function SvgPolyline() {
+  SvgElement.call(this, 'polyline', arguments[0]);
+}
+
+SvgPolyline.prototype = Object.create(SvgElement.prototype);
+SvgPolyline.prototype.constructor = SvgCircle;
+
+function SvgPolygon() {
+  SvgElement.call(this, 'polygon', arguments[0]);
+}
+
+SvgPolygon.prototype = Object.create(SvgElement.prototype);
+SvgPolygon.prototype.constructor = SvgCircle;
 
