@@ -7,13 +7,13 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
 gulp.task('lint', function() {
-  return gulp.src('src/js/*.js')
+  return gulp.src('src/js/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('src/js/*.js')
+  return gulp.src('src/js/**/*.js')
     .pipe(concat('all.js'))
     .pipe(gulp.dest('dist'))
     .pipe(rename('all.min.js'))
