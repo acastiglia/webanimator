@@ -48,8 +48,7 @@ function SvgRoot() {
   }
 } 
 
-SvgRoot.prototype = Object.create(SvgElement.prototype);
-SvgRoot.prototype.constructor = SvgRoot;
+extend(SvgElement).withObject(SvgRoot);
 
 SvgRoot.prototype.add = function(svgElement) {
   this.element.appendChild(svgElement.element);
@@ -59,49 +58,41 @@ function SvgRectangle() {
   SvgElement.call(this, 'rect', arguments[0]);
 }
 
-SvgRectangle.prototype = Object.create(SvgElement.prototype);
-SvgRectangle.prototype.constructor = SvgRectangle;
+extend(SvgElement).withObject(SvgRectangle);
 
 function SvgCircle() {
   SvgElement.call(this, 'circle', arguments[0]);
 }
 
-SvgCircle.prototype = Object.create(SvgElement.prototype);
-SvgCircle.prototype.constructor = SvgCircle;
+extend(SvgElement).withObject(SvgCircle);
 
 function SvgEllipse() {
   SvgElement.call(this, 'ellipse', arguments[0]);
 }
 
-SvgEllipse.prototype = Object.create(SvgElement.prototype);
-SvgEllipse.prototype.constructor = SvgCircle;
+extend(SvgElement).withObject(SvgEllipse);
 
 function SvgPath() {
   SvgElement.call(this, 'path', arguments[0]);
 }
 
-SvgPath.prototype = Object.create(SvgElement.prototype);
-SvgPath.prototype.constructor = SvgCircle;
-
+extend(SvgElement).withObject(SvgPath);
 
 function SvgLine() {
   SvgElement.call(this, 'line', arguments[0]);
 }
 
-SvgLine.prototype = Object.create(SvgElement.prototype);
-SvgLine.prototype.constructor = SvgCircle;
+extend(SvgElement).withObject(SvgLine);
 
 function SvgPolyline() {
   SvgElement.call(this, 'polyline', arguments[0]);
 }
 
-SvgPolyline.prototype = Object.create(SvgElement.prototype);
-SvgPolyline.prototype.constructor = SvgCircle;
+extend(SvgPolyline).withObject(SvgElement);
 
 function SvgPolygon() {
   SvgElement.call(this, 'polygon', arguments[0]);
 }
 
-SvgPolygon.prototype = Object.create(SvgElement.prototype);
-SvgPolygon.prototype.constructor = SvgCircle;
+extend(SvgElement).withObject(SvgPolygon);
 
