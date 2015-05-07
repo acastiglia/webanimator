@@ -6,14 +6,16 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
+var JS_SRC = 'src/js';
+
 gulp.task('lint', function() {
-  return gulp.src('src/js/**/*.js')
+  return gulp.src('JS_SRC/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('src/js/**/*.js')
+  return gulp.src(['src/js/util/*.js', 'src/js/**/*.js'])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('dist'))
     .pipe(rename('all.min.js'))
