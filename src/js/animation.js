@@ -18,11 +18,3 @@ var AnimationController = (function() {
 })();
 
 
-var Model = {
-  advance: function(timestamp) {}
-};
-
-var Renderer = {
-  render: function() {}
-};
-
