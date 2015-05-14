@@ -18,6 +18,12 @@ function Object2d() {
   }
 }
 
+Object2d.prototype.translate = function() {
+};
+
+Object2d.prototype.rotate = function() {
+};
+
 function Position(x, y) {
   this.x = x;
   this.y = y;
