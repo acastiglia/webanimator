@@ -1,31 +1,45 @@
 
 function Model2d() {
+  this.objects = [];
 }
 
 extend(Model).withObject(Model2d);
 
+Model2d.prototype.addObject = function(object) {
+  this.objects.push(object);
+};
+
 function Object2d() {
-  if (arguments.length >= 2) {
-    this.position = new Position(arguments[0], arguments[1]);
+  if (arguments.length < 1) {
+    throw new MissingValueError('Must specify object shape');
   }
 
-  if (arguments.length >= 3) {
-    this.shape = arguments[2];
+  this.shape = arguments[0];
+
+  if (arguments.length >= 2) {
+    this.translation = new Translation(arguments[1], arguments[2]);
+  } else {
+    return;
   }
 
   if (arguments.length >= 4) {
-    this.fill = arguments[3];
+    this.rotation = new Rotation(arguments[3]);
+  } else {
+    return;
+  }
+
+  if (arguments.length >= 5) {
+    this.fill = arguments[4];
   }
 }
 
-Object2d.prototype.translate = function() {
-};
+function Circle() {
+  Object2d.apply(this, ['circle'].concat(Array.prototype.slice.call(arguments)));
+}
 
-Object2d.prototype.rotate = function() {
-};
+extend(Object2d).withObject(Circle);
 
-function Position(x, y) {
-  this.x = x;
-  this.y = y;
+function Rectangle() {
+  Object2d.apply(this, ['rect'].concat(Array.prototype.slice.call(arguments)));
 }
 
