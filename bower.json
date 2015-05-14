@@ -1,0 +1,21 @@
+{
+  "name": "webanimator",
+  "version": "0.1.0",
+  "homepage": "https://github.com/acastiglia/webanimator",
+  "authors": [
+    "Anthony Castiglia <castiglia.anthony@gmail.com>"
+  ],
+  "description": "\"Utilities for creating animations in the browser\"",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gl-matrix": "~2.2.1"
+  }
+}

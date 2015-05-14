@@ -6,11 +6,12 @@
   "dependencies": {
     "gulp": "^3.8.11"
   },
-  "devDependencies": { 
+  "devDependencies": {
+    "bower-main": "^0.2.14",
     "gulp-jshint": "*",
     "gulp-recursive-concat": "*",
     "gulp-rename": "*",
-    "gulp-uglify": "*" 
+    "gulp-uglify": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
