@@ -30,7 +30,9 @@ model.advance = function(timestamp) {
   t = Date.now();
 };
 
-var controller = new AnimationController();
-controller.model = model;
-controller.renderer = renderer;
+var controller = new AnimationController()
+  .setModel(model)
+  .setRenderer(renderer);
+
 controller.start();
+

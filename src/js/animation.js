@@ -1,8 +1,16 @@
 
 function AnimationController() {
-  this.model = new Model();
-  this.renderer = new Renderer();
 }
+
+AnimationController.prototype.setModel = function(model) {
+  this.model = model;
+  return this;
+};
+
+AnimationController.prototype.setRenderer = function(renderer) {
+  this.renderer = renderer;
+  return this;
+}; 
 
 AnimationController.prototype.start = function() {
   (function startAnimation(model, renderer) {
