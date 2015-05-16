@@ -1,20 +1,16 @@
 
-var AnimationController = (function() {
-  var my = {};
-  my.model = Model;
-  my.renderer = Renderer;
+function AnimationController() {
+  this.model = new Model();
+  this.renderer = new Renderer();
+}
 
-  var step = function(timestamp) {
-    model.advance(timestamp);
-    renderer.render();
-    window.requestAnimationFrame(step);
-  };
+AnimationController.prototype.step = function(timestamp) {
+  this.model.advance(timestamp);
+  this.renderer.render();
+  window.requestAnimationFrame(this.step);
+};
 
-  my.start = function() {
-    step(Date.now());
-  };
-
-  return my;
-})();
-
+AnimationController.prototype.start = function() {
+  this.step(Date.now());
+};
 
