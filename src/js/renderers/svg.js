@@ -19,6 +19,17 @@ SvgElement.prototype.setAttribute = function(attrName, value) {
   this.element.setAttribute(attrName, value);
 };
 
+SvgElement.prototype.setTransform = function(matrixTransform) {
+  var transformString = 'matrix(' +
+    matrixTransform.mat[0] + ',' +
+    matrixTransform.mat[1] + ',' +
+    matrixTransform.mat[3] + ',' +
+    matrixTransform.mat[4] + ',' + 
+    matrixTransform.mat[6] + ',' + 
+    matrixTransform.mat[7] + ')';
+  this.setAttribute('transform', transformString);
+};
+
 function SvgRoot() {
   function fullscreen() {
     this.requestFullScreen = this.mozRequestFullScreen ||
