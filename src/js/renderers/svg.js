@@ -20,13 +20,13 @@ SvgElement.prototype.setAttribute = function(attrName, value) {
 };
 
 SvgElement.prototype.setTransform = function(matrixTransform) {
-  var transformString = 'matrix(' +
-    matrixTransform.mat[0] + ',' +
-    matrixTransform.mat[1] + ',' +
-    matrixTransform.mat[3] + ',' +
-    matrixTransform.mat[4] + ',' + 
-    matrixTransform.mat[6] + ',' + 
-    matrixTransform.mat[7] + ')';
+  var transformString = 'matrix(';
+    transformString += matrixTransform.mat[0] + ',';
+    transformString += matrixTransform.mat[1] + ',';
+    transformString += matrixTransform.mat[3] + ',';
+    transformString += matrixTransform.mat[4] + ',';
+    transformString += matrixTransform.mat[6] + ',';
+    transformString += matrixTransform.mat[7] + ')';
   this.setAttribute('transform', transformString);
 };
 

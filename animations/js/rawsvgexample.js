@@ -24,8 +24,8 @@ renderer.render = function() {
 };
 
 model.advance = function(timestamp) {
-  this.x = 250 + 250 * Math.sin(0.001 * timestamp);
-  this.y = 250 + 250 * Math.cos(0.003 * timestamp);
+  this.x = window.innerWidth / 2 + window.innerWidth / 2 * Math.sin(0.001 * timestamp);
+  this.y = window.innerHeight / 2 + window.innerHeight / 2 * Math.cos(0.003 * timestamp);
   circ.setTransform(new Translation(this.x, this.y));
   t = Date.now();
 };
