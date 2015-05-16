@@ -4,13 +4,13 @@ function AnimationController() {
   this.renderer = new Renderer();
 }
 
-AnimationController.prototype.step = function(timestamp) {
-  this.model.advance(timestamp);
-  this.renderer.render();
-  window.requestAnimationFrame(this.step);
-};
-
 AnimationController.prototype.start = function() {
-  this.step(Date.now());
+  (function startAnimation(model, renderer) {
+    (function step(timestamp) {
+      model.advance(timestamp);
+      renderer.render();
+      window.requestAnimationFrame(step);
+    })();
+  })(this.model, this.renderer);
 };
 
