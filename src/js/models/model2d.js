@@ -33,11 +33,26 @@ function Object2d() {
   }
 }
 
+Object2d.prototype.set = function(name, value) {
+  this[name] = value;
+  return this;
+};
+
+Object2d.prototype.setPosition = function(x, y) {
+  this.translation = new Translation(x, y);
+  return this;
+};
+
 function Circle() {
   Object2d.apply(this, ['circle'].concat(Array.prototype.slice.call(arguments)));
+  this.radius = 0;
 }
 
 extend(Object2d).withObject(Circle);
+
+Circle.prototype.setRadius = function(radius) {
+  return this.set('radius', radius);
+};
 
 function Rectangle() {
   Object2d.apply(this, ['rect'].concat(Array.prototype.slice.call(arguments)));

@@ -1,3 +1,7 @@
 
-var circle = new Circle(40, 40, 0, 'red');
+var circle1 = new Circle()
+  .set(10);
+
+var circle2 = new Circle()
+  .setRadius(30);
 
