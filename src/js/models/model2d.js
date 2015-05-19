@@ -7,6 +7,7 @@ extend(Model).withObject(Model2d);
 
 Model2d.prototype.addObject = function(object) {
   this.objects.push(object);
+  return this;
 };
 
 function Object2d() {
@@ -15,6 +16,9 @@ function Object2d() {
   }
 
   this.shape = arguments[0];
+
+  this.translation = Transformation.IDENTITY;
+  this.rotation = Transformation.IDENTITY;
 
   if (arguments.length >= 2) {
     this.translation = new Translation(arguments[1], arguments[2]);
@@ -39,10 +43,25 @@ Object2d.prototype.set = function(name, value) {
 };
 
 Object2d.prototype.setPosition = function(x, y) {
-  if (typeof this.translation === 'undefined') {
+  if (typeof this.translation === 'undefined' || this.translation === Transformation.IDENTITY) {
     this.translation = new Translation(x, y);
+  } else {
+    this.translation.setPosition(x, y);
   }
   return this;
+};
+
+Object2d.prototype.setRotation = function(angle) {
+  if (typeof this.rotation === 'undefined' || this.rotation === Transformation.IDENTITY) {
+    this.rotation = new Rotation(angle);
+  } else {
+    this.rotation.setRotation(angle);
+  }
+  return this;
+};
+
+Object2d.prototype.getTransformation = function() {
+  return this.rotation.combine(this.translation);
 };
 
 function Circle() {
@@ -57,6 +76,6 @@ Circle.prototype.setRadius = function(radius) {
 };
 
 function Rectangle() {
-  Object2d.apply(this, ['rect'].concat(Array.prototype.slice.call(arguments)));
+  Object2d.apply(this, ['rectangle'].concat(Array.prototype.slice.call(arguments)));
 }
 

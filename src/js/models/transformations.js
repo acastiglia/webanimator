@@ -1,8 +1,11 @@
 
 var I3 = mat3.create();
 
-function Transformation() {
+function Transformation(transformationMatrix) {
+  this.mat = transformationMatrix;
 }
+
+Transformation.IDENTITY = new Transformation(mat3.create());
 
 Transformation.prototype.transform = function(vec) {
   vec3.transformMat3(vec, vec, this.mat);
@@ -16,8 +19,8 @@ Transformation.prototype.transformed = function(vec) {
 
 Transformation.prototype.combine = function(that) {
   var newTransformation = mat3.create();
-  mat3.multiply(newTransformation, this, that);
-  return newTransformation;
+  mat3.multiply(newTransformation, this.mat, that.mat);
+  return new Transformation(newTransformation);
 };
 
 function Translation(x, y) {
@@ -35,10 +38,16 @@ extend(Transformation).withObject(Translation);
 
 function Rotation(angle) {
   this.mat = mat3.create();
+  this.angle = angle;
   mat3.rotate(this.mat, this.mat, angle);
 }
 
 extend(Transformation).withObject(Rotation);
+
+Rotation.prototype.setRotation = function(angle) {
+  this.angle = angle;
+  mat3.rotate(this.mat, I3, this.angle);
+};
 
 function Scale(scaleX, scaleY) {
   if (typeof scaleY === 'undefined') {
