@@ -18,7 +18,7 @@ AnimationController.prototype.start = function() {
       model.advance(timestamp);
       renderer.render();
       window.requestAnimationFrame(step);
-    })();
+    })(Date.now());
   })(this.model, this.renderer);
 };
 
