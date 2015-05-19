@@ -1,4 +1,6 @@
 
+var I3 = mat3.create();
+
 function Transformation() {
 }
 
@@ -20,8 +22,14 @@ Transformation.prototype.combine = function(that) {
 
 function Translation(x, y) {
   this.mat = mat3.create();
-  mat3.translate(this.mat, this.mat, vec3.fromValues(x, y, 1));
+  this.translation_vec = vec3.fromValues(x, y, 1);
+  mat3.translate(this.mat, this.mat, this.translation_vec);
 }
+
+Translation.prototype.setPosition = function(x, y) {
+  vec3.set(this.translation_vec, this.translation_vec, x, y, 1);
+  mat3.translate(this.mat, I3, this.translation_vec);
+};
 
 extend(Transformation).withObject(Translation);
 

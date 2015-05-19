@@ -39,7 +39,9 @@ Object2d.prototype.set = function(name, value) {
 };
 
 Object2d.prototype.setPosition = function(x, y) {
-  this.translation = new Translation(x, y);
+  if (typeof this.translation === 'undefined') {
+    this.translation = new Translation(x, y);
+  }
   return this;
 };
 
