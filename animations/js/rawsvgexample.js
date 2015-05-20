@@ -1,34 +1,33 @@
 
-var graphic = new SvgRoot({
-  'width': window.innerWidth, 'height': window.innerHeight,
-  'fullscreenOnClick': true
-});
-
+var graphic = SvgRoot.fullScreenSvgForWindow();
 document.body.appendChild(graphic.element);
 
 var rect = new SvgRectangle({
-  'width': window.innerWidth, 'height': window.innerHeight, 'fill': '#95B3D7'
+  'width': '100%', 'height': '100%', 'fill': '#95B3D7'
 });
 
 var circ = new SvgCircle({'cx' : 40, 'cy' : 40, 'r' : 20, 'fill' : 'red'});
 
-graphic.add(rect);
-graphic.add(circ);
+graphic.addElement(rect);
+graphic.addElement(circ);
 
 
-var model = function() {};
+var renderer = {
+  render: function() {}
+};
+
+extend(Renderer).withObject(renderer);
+
+var model = {
+  advance: function(timestamp) {
+    this.x = window.innerWidth / 2 + window.innerWidth / 2 * Math.sin(0.001 * timestamp);
+    this.y = window.innerHeight / 2 + window.innerHeight / 2 * Math.cos(0.003 * timestamp);
+    circ.setTransform(new Translation(this.x, this.y));
+    t = Date.now();
+  }
+};
+
 extend(Model2d).withObject(model);
-
-var renderer = function() {};
-renderer.render = function() {
-};
-
-model.advance = function(timestamp) {
-  this.x = window.innerWidth / 2 + window.innerWidth / 2 * Math.sin(0.001 * timestamp);
-  this.y = window.innerHeight / 2 + window.innerHeight / 2 * Math.cos(0.003 * timestamp);
-  circ.setTransform(new Translation(this.x, this.y));
-  t = Date.now();
-};
 
 var controller = new AnimationController()
   .setModel(model)

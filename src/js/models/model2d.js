@@ -64,6 +64,10 @@ Object2d.prototype.getTransformation = function() {
   return this.rotation.combine(this.translation);
 };
 
+Object2d.prototype.setFillColor = function(color) {
+  return this.set('fill', color);
+};
+
 function Circle() {
   Object2d.apply(this, ['circle'].concat(Array.prototype.slice.call(arguments)));
   this.radius = 0;
@@ -78,4 +82,14 @@ Circle.prototype.setRadius = function(radius) {
 function Rectangle() {
   Object2d.apply(this, ['rectangle'].concat(Array.prototype.slice.call(arguments)));
 }
+
+extend(Object2d).withObject(Rectangle);
+
+Rectangle.prototype.setWidth = function(width) {
+  return this.set('width', width);
+};
+
+Rectangle.prototype.setHeight = function(height) {
+  return this.set('height', height);
+};
 

@@ -17,6 +17,11 @@ function SvgElement(elementName) {
 
 SvgElement.prototype.setAttribute = function(attrName, value) {
   this.element.setAttribute(attrName, value);
+  return this;
+};
+
+SvgElement.prototype.setFill = function(fillColor) {
+  return this.setAttribute('fill', fillColor);
 };
 
 SvgElement.prototype.setTransform = function(matrixTransform) {
@@ -27,10 +32,10 @@ SvgElement.prototype.setTransform = function(matrixTransform) {
     transformString += matrixTransform.mat[4] + ',';
     transformString += matrixTransform.mat[6] + ',';
     transformString += matrixTransform.mat[7] + ')';
-  this.setAttribute('transform', transformString);
+  return this.setAttribute('transform', transformString);
 };
 
-function SvgRoot() {
+function SvgRoot(width, height, fullscreenOnClick) {
   function fullscreen() {
     this.requestFullScreen = this.mozRequestFullScreen ||
       this.webkitRequestFullScreen;
@@ -41,28 +46,22 @@ function SvgRoot() {
   this.element = createSvgElement("svg");
   this.properties = {};
 
-  if (arguments.length === 2) {
-    this.element.setAttribute('width', arguments[0]);
-    this.element.setAttribute('height', arguments[1]);
-    return;
-  }
-
-  if (arguments.length === 1) {
-    var props = arguments[0];
-
-    this.element.setAttribute('width', props.width || null);
-    this.element.setAttribute('height', props.height || null);
-
-    if (props.fullscreenOnClick) {
-      this.element.addEventListener('click', fullscreen);
-    }
+  this.element.setAttribute('viewbox', "0 0 " + width + " " + height);
+  this.element.setAttribute('width', width);
+  this.element.setAttribute('height', height);
+  if (typeof fullscreenOnClick !== 'undefined') {
+    this.element.addEventListener('click', fullscreen);
   }
 } 
 
 extend(SvgElement).withObject(SvgRoot);
 
-SvgRoot.prototype.add = function(svgElement) {
+SvgRoot.prototype.addElement = function(svgElement) {
   this.element.appendChild(svgElement.element);
+};
+
+SvgRoot.fullScreenSvgForWindow = function () {
+  return new SvgRoot(window.innerWidth, window.innerHeight, true);
 };
 
 function SvgRectangle() {
@@ -71,11 +70,23 @@ function SvgRectangle() {
 
 extend(SvgElement).withObject(SvgRectangle);
 
+SvgRectangle.prototype.setWidth = function(width) {
+  return this.setAttribute('width', width);
+};
+
+SvgRectangle.prototype.setHeight = function(height) {
+  return this.setAttribute('height', height);
+};
+
 function SvgCircle() {
   SvgElement.call(this, 'circle', arguments[0]);
 }
 
 extend(SvgElement).withObject(SvgCircle);
+
+SvgCircle.prototype.setRadius = function(radius) {
+  return this.setAttribute('r', radius);
+};
 
 function SvgEllipse() {
   SvgElement.call(this, 'ellipse', arguments[0]);
