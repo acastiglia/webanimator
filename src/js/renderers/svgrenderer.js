@@ -16,8 +16,7 @@ var objectMappings = {
 };
 
 function SvgRenderer() {
-  this.elements = [];
-  this.objectMap = {};
+  this.objects = [];
   this.rootElement = null;
 }
 
@@ -42,11 +41,10 @@ SvgRenderer.fromModel = function(model, width, height, fullscreen) {
 
   for (var i in model.objects) {
     var obj = model.objects[i];
-
     var element = objectMappings[obj.shape](obj) || null;
 
     if (element !== null) {
-      renderer.objectMap[obj] = element;
+      renderer.objects[i] = element;
       renderer.rootElement.addElement(element);
     }
   }
