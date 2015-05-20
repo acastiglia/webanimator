@@ -23,7 +23,7 @@ gulp.task('vendorscripts', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['src/js/util/*.js', 'src/js/**/*.js'])
+  return gulp.src(['src/js/util/extend.js', 'src/js/util/*.js', 'src/js/**/*.js'])
     .pipe(concat('webanimator.js'))
     .pipe(gulp.dest('dist'))
     .pipe(rename('webanimator.min.js'))
