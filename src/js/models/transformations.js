@@ -29,12 +29,12 @@ function Translation(x, y) {
   mat3.translate(this.mat, this.mat, this.translation_vec);
 }
 
+extend(Transformation).withObject(Translation);
+
 Translation.prototype.setPosition = function(x, y) {
-  vec3.set(this.translation_vec, this.translation_vec, x, y, 1);
+  vec3.set(this.translation_vec, x, y, 1);
   mat3.translate(this.mat, I3, this.translation_vec);
 };
-
-extend(Transformation).withObject(Translation);
 
 function Rotation(angle) {
   this.mat = mat3.create();
