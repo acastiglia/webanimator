@@ -16,6 +16,7 @@ var objectMappings = {
 };
 
 function SvgRenderer() {
+  this.model = null;
   this.objects = [];
   this.rootElement = null;
 }
@@ -30,8 +31,15 @@ SvgRenderer.prototype.addElement = function(element) {
   this.elements.push(element);
 };
 
+SvgRenderer.prototype.render = function() {
+  for (var objIndex in this.objects) {
+    this.objects[objIndex].setTransform(this.model.objects[objIndex].getTransformation());
+  }
+};
+
 SvgRenderer.fromModel = function(model, width, height, fullscreen) {
   var renderer = new SvgRenderer();
+  renderer.model = model;
 
   if (fullscreen) {
     renderer.rootElement = SvgRoot.fullScreenSvgForWindow();
