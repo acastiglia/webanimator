@@ -27,3 +27,11 @@ Build with gulp:
 ```sh
 gulp
 ```
+
+To run example animations, serve the root directory of this project with Python:
+```sh
+python -m SimpleHTTPServer
+```
+and navigate to http://localhost:8000, or simply open `index.html` in a 
+web browser.
+
