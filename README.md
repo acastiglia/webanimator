@@ -35,3 +35,8 @@ python -m SimpleHTTPServer
 and navigate to http://localhost:8000, or simply open `index.html` in a 
 web browser.
 
+
+### Contributing
+
+This is open source software, and contributions are welcome. If you'd like to extend the code in any way, please "fork and pull" (https://help.github.com/articles/using-pull-requests/).
+
