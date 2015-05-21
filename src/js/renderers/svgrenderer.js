@@ -60,11 +60,14 @@ SvgRenderer.fromModel = function(model, width, height, fullscreen) {
   return renderer;
 };
 
-SvgRenderer.fromGraphic = function(svgRoot) {
+SvgRenderer.fromGraphic = function(svgRoot, fullscreen) {
   var renderer = new SvgRenderer();
   var model = new Model2d();
 
   var rootElement = SvgElement.fromExisting(svgRoot);
+  if (fullscreen) {
+    rootElement.element.addEventListener('click', function(){requestFullscreen(rootElement.element);});
+  }
   renderer.rootElement = rootElement;
   renderer.model = model;
 

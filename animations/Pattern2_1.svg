@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="graphic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1920px" height="1080px" viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xml:space="preserve">
+		<rect fill="#FFFFFF" height="1080" width="1920"/>
+		<circle fill="#D4FCFC" cx="210.188" cy="77.555" r="12.962"/>
+		<circle fill="#D4FCFC" cx="548.164" cy="77.555" r="12.962"/>
+		<circle fill="#D4FCFC" cx="883.08" cy="77.43" r="12.962"/>
+		<circle fill="#D4FCFC" cx="1223.08" cy="77.43" r="12.962"/>
+		<circle fill="#D4FCFC" cx="1567.08" cy="77.305" r="12.962"/>
+		<circle fill="#D4FCFC" cx="208.128" cy="765.871" r="12.962"/>
+		<circle fill="#D4FCFC" cx="546.104" cy="765.871" r="12.962"/>
+		<circle fill="#D4FCFC" cx="881.019" cy="765.746" r="12.962"/>
+		<circle fill="#D4FCFC" cx="1221.019" cy="765.746" r="12.962"/>
+		<circle fill="#D4FCFC" cx="1565.019" cy="765.622" r="12.962"/>
+		<circle fill="#D4FCFC" cx="210.128" cy="428.464" r="12.962"/>
+		<circle fill="#D4FCFC" cx="548.104" cy="428.464" r="12.962"/>
+		<circle fill="#D4FCFC" cx="883.019" cy="428.338" r="12.962"/>
+		<circle fill="#D4FCFC" cx="1223.019" cy="428.338" r="12.962"/>
+		<circle fill="#D4FCFC" cx="1567.019" cy="428.214" r="12.962"/>
+		<circle fill="#F9D4C7" cx="210.188" cy="277.555" r="95.979"/>
+		<circle fill="#F9D4C7" cx="548.164" cy="277.555" r="95.979"/>
+		<circle fill="#F9D4C7" cx="886.14" cy="277.555" r="95.979"/>
+		<circle fill="#F9D4C7" cx="1224.116" cy="277.555" r="95.979"/>
+		<circle fill="#F9D4C7" cx="1567.08" cy="277.429" r="95.979"/>
+		<circle fill="#F9D4C7" cx="208.128" cy="965.871" r="95.979"/>
+		<circle fill="#F9D4C7" cx="546.104" cy="965.871" r="95.979"/>
+		<circle fill="#F9D4C7" cx="884.08" cy="965.871" r="95.979"/>
+		<circle fill="#F9D4C7" cx="1222.055" cy="965.871" r="95.979"/>
+		<circle fill="#F9D4C7" cx="1565.019" cy="965.746" r="95.979"/>
+		<circle fill="#F9D4C7" cx="210.128" cy="628.464" r="95.979"/>
+		<circle fill="#F9D4C7" cx="548.104" cy="628.464" r="95.979"/>
+		<circle fill="#F9D4C7" cx="886.08" cy="628.464" r="95.979"/>
+		<circle fill="#F9D4C7" cx="1224.055" cy="628.464" r="95.979"/>
+		<circle fill="#F9D4C7" cx="1567.019" cy="628.338" r="95.979"/>
+		<circle fill="#F2F2AA" cx="41.2" cy="77.555" r="43.979"/>
+		<circle fill="#F2F2AA" cx="717.152" cy="77.555" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1393.104" cy="77.555" r="43.979"/>
+		<circle fill="#F2F2AA" cx="379.176" cy="277.555" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1055.128" cy="277.555" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1731.08" cy="277.555" r="43.979"/>
+		<circle fill="#F2F2AA" cx="39.14" cy="765.871" r="43.979"/>
+		<circle fill="#F2F2AA" cx="715.092" cy="765.871" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1391.043" cy="765.871" r="43.979"/>
+		<circle fill="#F2F2AA" cx="377.116" cy="965.871" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1053.068" cy="965.871" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1729.019" cy="965.871" r="43.979"/>
+		<circle fill="#F2F2AA" cx="41.14" cy="428.464" r="43.979"/>
+		<circle fill="#F2F2AA" cx="717.092" cy="428.464" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1393.043" cy="428.464" r="43.979"/>
+		<circle fill="#F2F2AA" cx="379.116" cy="628.464" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1055.068" cy="628.464" r="43.979"/>
+		<circle fill="#F2F2AA" cx="1731.019" cy="628.464" r="43.979"/>
+		<circle fill="#E1F2E7" cx="379.176" cy="77.555" r="43.979"/>
+		<circle opacity="0.5" fill="#E1F2E7" cx="1055.128" cy="77.555" r="43.979"/>
+		<circle opacity="0.5" fill="#E1F2E7" cx="1731.08" cy="77.555" r="43.979"/>
+		<circle fill="#E1F2E7" cx="41.2" cy="277.555" r="43.979"/>
+		<circle fill="#E1F2E7" cx="717.152" cy="277.555" r="43.979"/>
+		<circle fill="#E1F2E7" cx="1393.104" cy="277.555" r="43.979"/>
+		<circle fill="#E1F2E7" cx="377.116" cy="765.871" r="43.979"/>
+		<circle fill="#E1F2E7" cx="1053.068" cy="765.871" r="43.979"/>
+		<circle fill="#E1F2E7" cx="1729.019" cy="765.871" r="43.979"/>
+		<circle fill="#E1F2E7" cx="39.14" cy="965.871" r="43.979"/>
+		<circle fill="#E1F2E7" cx="715.092" cy="965.871" r="43.979"/>
+		<circle fill="#E1F2E7" cx="1391.043" cy="965.871" r="43.979"/>
+		<circle fill="#E1F2E7" cx="379.116" cy="428.464" r="43.979"/>
+		<circle fill="#E1F2E7" cx="1055.068" cy="428.464" r="43.979"/>
+		<circle fill="#E1F2E7" cx="1731.019" cy="428.464" r="43.979"/>
+		<circle fill="#E1F2E7" cx="41.14" cy="628.464" r="43.979"/>
+		<circle fill="#E1F2E7" cx="717.092" cy="628.464" r="43.979"/>
+		<circle fill="#E1F2E7" cx="1393.043" cy="628.464" r="43.979"/>
+</svg>

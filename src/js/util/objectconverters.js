@@ -28,18 +28,24 @@ var elementToObject = (function() {
   var initializersByNodeName = {
     'circle': function(svgNode) {
       var c = baseInitializer(svgNode);
+      if (svgNode.hasAttribute('r')) {
+        c.setRadius(svgNode.attributes.r.value);
+      }
       if (svgNode.hasAttribute('cx') || svgNode.hasAttribute('cy')) {
-        c.setPosition(c.translation.getX + (+svgNode.attributes.cx.value || 0),
-                      c.translation.getY + (+svgNode.attributes.cy.value || 0));
+        c.setPosition(c.translation.getX() + (+svgNode.attributes.cx.value || 0),
+                      c.translation.getY() + (+svgNode.attributes.cy.value || 0));
+
+        svgNode.removeAttribute('cx');
+        svgNode.removeAttribute('cy');
       }
       return c;
     },
 
-    'rectangle': function(svgNode) {
+    'rect': function(svgNode) {
       var r = baseInitializer(svgNode);
       if (svgNode.hasAttribute('x') || svgNode.hasAttribute('y')) {
-        r.setPosition(r.translation.getX + (+svgNode.attributes.x.value || 0),
-                      r.translation.getY + (+svgNode.attributes.y.value || 0));
+        r.setPosition(r.translation.getX() + (+svgNode.attributes.x.value || 0),
+                      r.translation.getY() + (+svgNode.attributes.y.value || 0));
       }
 
       if (svgNode.hasAttribute('width')) {

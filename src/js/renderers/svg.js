@@ -46,13 +46,6 @@ SvgElement.prototype.setTransform = function(matrixTransform) {
 };
 
 function SvgRoot(width, height, fullscreenOnClick) {
-  function fullscreen() {
-    this.requestFullScreen = this.mozRequestFullScreen ||
-      this.webkitRequestFullScreen;
-  
-    this.requestFullScreen();
-  }
-
   this.element = createSvgElement("svg");
   this.properties = {};
 
@@ -60,7 +53,7 @@ function SvgRoot(width, height, fullscreenOnClick) {
   this.element.setAttribute('width', width);
   this.element.setAttribute('height', height);
   if (typeof fullscreenOnClick !== 'undefined') {
-    this.element.addEventListener('click', fullscreen);
+    this.element.addEventListener('click', function() {requestFullscreen(this);});
   }
 } 
 

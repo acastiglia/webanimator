@@ -23,10 +23,6 @@ Transformation.prototype.combine = function(that) {
   return new Transformation(newTransformation);
 };
 
-Transformation.fromString = function(transformString) {
-  
-};
-
 function Translation(x, y) {
   this.mat = mat3.create();
   this.translation_vec = vec3.fromValues(x, y, 1);
