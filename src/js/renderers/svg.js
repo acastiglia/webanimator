@@ -4,6 +4,10 @@ function createSvgElement(elementName) {
 }
 
 function SvgElement(elementName) {
+  if (typeof elementName === 'undefined') {
+    return;
+  }
+
   this.element = createSvgElement(elementName);
 
   if (arguments.length == 2) {
@@ -14,6 +18,12 @@ function SvgElement(elementName) {
     }
   }
 }
+
+SvgElement.fromExisting = function(element) {
+  var svgElement = new SvgElement();
+  svgElement.element = element;
+  return svgElement;
+};
 
 SvgElement.prototype.setAttribute = function(attrName, value) {
   this.element.setAttribute(attrName, value);
@@ -110,7 +120,7 @@ function SvgPolyline() {
   SvgElement.call(this, 'polyline', arguments[0]);
 }
 
-extend(SvgPolyline).withObject(SvgElement);
+extend(SvgElement).withObject(SvgPolyline);
 
 function SvgPolygon() {
   SvgElement.call(this, 'polygon', arguments[0]);

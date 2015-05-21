@@ -1,5 +1,5 @@
 
-var objectMappings = {
+var objectToElement = {
   circle: function(object) {
     return new SvgCircle()
       .setRadius(object.radius)
@@ -17,7 +17,7 @@ var objectMappings = {
 
 function SvgRenderer() {
   this.model = null;
-  this.objects = [];
+  this.svgElements = [];
   this.rootElement = null;
 }
 
@@ -32,8 +32,8 @@ SvgRenderer.prototype.addElement = function(element) {
 };
 
 SvgRenderer.prototype.render = function() {
-  for (var objIndex in this.objects) {
-    this.objects[objIndex].setTransform(this.model.objects[objIndex].getTransformation());
+  for (var objIndex in this.svgElements) {
+    this.svgElements[objIndex].setTransform(this.model.objects[objIndex].getTransformation());
   }
 };
 
@@ -49,12 +49,29 @@ SvgRenderer.fromModel = function(model, width, height, fullscreen) {
 
   for (var i in model.objects) {
     var obj = model.objects[i];
-    var element = objectMappings[obj.shape](obj) || null;
+    var element = objectToElement[obj.shape](obj) || null;
 
     if (element !== null) {
-      renderer.objects[i] = element;
+      renderer.svgElements[i] = element;
       renderer.rootElement.addElement(element);
     }
+  }
+
+  return renderer;
+};
+
+SvgRenderer.fromGraphic = function(svgRoot) {
+  var renderer = new SvgRenderer();
+  var model = new Model2d();
+
+  var rootElement = SvgElement.fromExisting(svgRoot);
+  renderer.rootElement = rootElement;
+  renderer.model = model;
+
+  for (var i = 0, len = rootElement.element.childElementCount; i < len; i++) {
+    var child = rootElement.element.children[i];
+    model.addObject(elementToObject(child));
+    renderer.svgElements.push(SvgElement.fromExisting(child));
   }
 
   return renderer;

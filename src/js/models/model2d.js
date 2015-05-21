@@ -17,8 +17,8 @@ function Object2d() {
 
   this.shape = arguments[0];
 
-  this.translation = Transformation.IDENTITY;
-  this.rotation = Transformation.IDENTITY;
+  this.translation = new Translation(0, 0);
+  this.rotation = new Rotation(0);
 
   if (arguments.length >= 2) {
     this.translation = new Translation(arguments[1], arguments[2]);
@@ -55,7 +55,7 @@ Object2d.prototype.setRotation = function(angle) {
   if (typeof this.rotation === 'undefined' || this.rotation === Transformation.IDENTITY) {
     this.rotation = new Rotation(angle);
   } else {
-    this.rotation.setRotation(angle);
+    this.rotation.setAngle(angle);
   }
   return this;
 };
@@ -92,4 +92,28 @@ Rectangle.prototype.setWidth = function(width) {
 Rectangle.prototype.setHeight = function(height) {
   return this.set('height', height);
 };
+
+function Line() {
+  Object2d.apply(this, ['line'].concat(Array.prototype.slice.call(arquments)));
+}
+
+extend(Object2d).withObject(Line);
+
+function Polyline() {
+  Object2d.apply(this, ['line'].concat(Array.prototype.slice.call(arquments)));
+}
+
+extend(Object2d).withObject(Polyline);
+
+function Polygon() {
+  Object2d.apply(this, ['polygon'].concat(Array.prototype.slice.call(arquments)));
+}
+
+extend(Object2d).withObject(Polygon);
+
+function Path() {
+  Object2d.apply(this, ['path'].concat(Array.prototype.slice.call(arquments)));
+}
+
+extend(Object2d).withObject(Path);
 
